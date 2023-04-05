@@ -1,7 +1,7 @@
 const ROCK = "rock";
 const PAPER = "paper";
 const SCISSORS = "scissors";
-const playerSelection = prompt("Your choice: rock, paper or scissors?").toLowerCase();
+const playerSelection = () => prompt("Your choice: rock, paper or scissors?").toLowerCase();
 const computerSelection = getComputerChoice();
 
 let playerScore = 0,
@@ -54,21 +54,23 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game(){
-    for (let i=0; i < 5; i++){
-        playRound(playerSelection, computerSelection)
-        if (i === 4){
-            console.log("It is a tie!");
+    for (let i=0; i < 9; i++){
+        console.log(playRound(playerSelection(), getComputerChoice()))
+        if (i === 9 && playerScore === computerScore){
+            console.log("It is an absolute tie!");
             break;
         
         }else if (playerScore === computerScore){
             continue;
-        }else if (computerScore === 3){
-            console.log("You have lost!");
+        }else if (playerScore === 5){
+            console.log("You have beaten the computer!");
             break;
-        }else if (playerScore === 3){
-            console.log("You have won!")
+        }else if ( computerScore === 5){
+            console.log("You have been beaten by the computer!")
             break;
         }
+        console.log(playerScore);
+        console.log(computerScore);
     }
     playerScore = 0;
     computerScore = 0;
