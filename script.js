@@ -21,7 +21,7 @@ imgs.forEach(img => img.addEventListener("click", () => {
     const roundResult = playRound(img.id, compChoice);
     document.querySelector(".d-msg").textContent = `${roundResult}`;
     
-    const compImg = document.querySelector("#comp-choice-img").setAttribute("src", `/imgs/${compChoice}.png`)
+    const compImg = document.querySelector("#comp-choice-img").setAttribute("src", `imgs/${compChoice}.png`)
 
     document.querySelector(".d-score-you").textContent = `${playerScore}`;
     document.querySelector(".d-score-comp").textContent = `${computerScore}`;
