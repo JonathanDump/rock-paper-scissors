@@ -1,11 +1,64 @@
 const ROCK = "rock";
 const PAPER = "paper";
 const SCISSORS = "scissors";
-const playerSelection = () => prompt("Your choice: rock, paper or scissors?").toLowerCase();
+//const playerSelection = () => prompt("Your choice: rock, paper or scissors?").toLowerCase();
 const computerSelection = getComputerChoice();
+const imgs = document.querySelectorAll(".main-left img");
+//console.log(imgs);
 
 let playerScore = 0,
     computerScore = 0;
+
+    if (playerScore === 5 || computerScore === 5){
+        playerScore = 0;
+        computerScore = 0;
+        document.querySelector(".d-score-you").textContent = `${playerScore}`;
+        document.querySelector(".d-score-comp").textContent = `${computerScore}`;
+    }
+
+imgs.forEach(img => img.addEventListener("click", () => {
+    const compChoice = getComputerChoice();
+    const roundResult = playRound(img.id, compChoice);
+    document.querySelector(".d-msg").textContent = `${roundResult}`;
+    
+    const compImg = document.querySelector("#comp-choice-img").setAttribute("src", `/imgs/${compChoice}.png`)
+
+    document.querySelector(".d-score-you").textContent = `${playerScore}`;
+    document.querySelector(".d-score-comp").textContent = `${computerScore}`;
+
+   
+    if (playerScore === 5 || computerScore === 5){
+        const popUp = document.querySelector(".result-alert-container");
+        popUp.classList.add("result-alert-container-visible");
+        
+        const resultSign = document.querySelector(".result-sign");
+        resultSign.classList.add("result-sign-anim");
+
+        const paraRes = document.querySelector(".p-result");
+        const replayBtn = document.querySelector(".btn-play");
+
+        if (playerScore === 5){
+            paraRes.textContent = "You have beaten the computer!";
+        } else {
+            paraRes.textContent = "You have been beaten by the computer!";
+        }
+
+        replayBtn.addEventListener("click", () => {
+        playerScore = 0;
+        computerScore = 0;
+        document.querySelector(".d-score-you").textContent = `${playerScore}`;
+        document.querySelector(".d-score-comp").textContent = `${computerScore}`;
+        popUp.classList.remove("result-alert-container-visible");
+        resultSign.classList.remove("result-sign-anim");
+
+        compImg.setAttribute("src", ``)
+
+        });
+
+    }
+
+}));
+
 
 
 function getComputerChoice() {
@@ -19,8 +72,7 @@ function getComputerChoice() {
 function playRound(playerSelection, computerSelection) {
     let result;
     if (playerSelection === "rock" && computerSelection === "rock") {
-        playerScore++;
-        computerScore++;
+
         return result = "It's a tie!"
     } else if (playerSelection === "rock" && computerSelection === "scissors") {
         playerScore++;
@@ -30,8 +82,7 @@ function playRound(playerSelection, computerSelection) {
         return result = "You are a loser!";
 
     } if (playerSelection === "scissors" && computerSelection === "scissors") {
-        playerScore++;
-        computerScore++;
+
         return result = "It's a tie!";
     } else if (playerSelection === "scissors" && computerSelection === "rock") {
         computerScore++;
@@ -41,8 +92,7 @@ function playRound(playerSelection, computerSelection) {
         return result = "You are a winner!";
 
     } if (playerSelection === "paper" && computerSelection === "paper") {
-        playerScore++;
-        computerScore++;
+ 
         return result = "It's a tie!";
     } else if (playerSelection === "paper" && computerSelection === "rock") {
         playerScore++;
@@ -53,27 +103,38 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
-function game(){
-    for (let i=0; i < 9; i++){
-        console.log(playRound(playerSelection(), getComputerChoice()))
-        if (i === 9 && playerScore === computerScore){
-            console.log("It is an absolute tie!");
-            break;
-        
-        }else if (playerScore === computerScore){
-            continue;
-        }else if (playerScore === 5){
-            console.log("You have beaten the computer!");
-            break;
-        }else if ( computerScore === 5){
-            console.log("You have been beaten by the computer!")
-            break;
-        }
-        console.log(playerScore);
-        console.log(computerScore);
-    }
-    playerScore = 0;
-    computerScore = 0;
-}
 
-game();
+
+
+
+
+
+
+
+
+
+
+// function game(){
+//     for (let i=0; i < 9; i++){
+//         console.log(playRound(playerSelection(), getComputerChoice()))
+//         if (i === 9 && playerScore === computerScore){
+//             console.log("It is an absolute tie!");
+//             break;
+        
+//         }else if (playerScore === computerScore){
+//             continue;
+//         }else if (playerScore === 5){
+//             console.log("You have beaten the computer!");
+//             break;
+//         }else if ( computerScore === 5){
+//             console.log("You have been beaten by the computer!")
+//             break;
+//         }
+//         console.log(playerScore);
+//         console.log(computerScore);
+//     }
+//     playerScore = 0;
+//     computerScore = 0;
+// }
+
+// game();

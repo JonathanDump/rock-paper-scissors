@@ -1,0 +1,174 @@
+@font-face {
+    font-family: Sudo;
+    src: url("Sudo-fonts/Sudo-Regular.woff2") format("woff2");
+    font-style: normal;
+}
+
+@font-face {
+    font-family: Sudo;
+    src: url("Sudo-fonts/Sudo-Italic.woff2") format("woff2");
+    font-style: italic;
+}
+
+
+body {
+    overflow: hidden;
+    background-color: black;
+    font-family: Sudo, "Times New Roman", sans-serif;
+    color: white;
+}
+
+div {
+    display: flex;
+}
+
+.body-container {
+    height: 100vh;
+    width: 100vw;
+
+}
+
+.body-container,
+.main-left,
+.main-right,
+.h-block,
+.d-score-you,
+.d-score-comp,
+.main-left,
+.main-right,
+.main-mid {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* HEADER */
+.header-container {
+    justify-content: space-around;
+    padding: 24px;
+    flex: auto;
+    width: 100%;
+    flex: 1;
+
+}
+
+.h-block {
+    gap: 8px;
+    flex: 1;
+}
+
+
+.d-you,
+.d-comp {
+    font-size: 60px;
+}
+
+.d-score-you,
+.d-score-comp {
+    font-size: 54px;
+}
+
+.d-msg {
+    font-size: 42px;
+}
+
+/* MAIN CONTAINER */
+.main-container {
+    width: 100%;
+    flex: 7 1 0;
+    padding: 42px;
+}
+
+.main-left,
+.main-right,
+.main-mid {
+    width: 33%;
+    flex: 1;
+}
+
+.object {
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 14px;
+}
+
+img {
+    max-width: 60%;
+    max-height: 60%;
+    transition: all 0.15s ease;
+}
+
+.main-left img{
+    scale: 120%
+}
+
+.main-left img:hover {
+    cursor: pointer;
+    scale: 140%;
+    filter: drop-shadow(0 0 0.75rem white);
+}
+
+.sep-bar {
+    background-color: white;
+    width: 4px;
+    height: 70%;
+}
+
+/* RESULT ALERT */
+
+.result-alert-container {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+
+    height: 100vh;
+    width: 100vw;
+    left: 0;
+    top: 0;
+
+    /* display: none; */
+    visibility: hidden;
+    
+}
+
+.result-alert-container-visible{
+    /* display: flex; */
+    visibility: visible;
+}
+
+.result-sign {
+    flex-direction: column;
+    min-height: 30vh;
+    min-width: 45vh;
+    font-size: 54px;
+    opacity: 100;
+    background-color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 24px;
+    color: black;
+    transform: scale(0.1);
+    transition: all 0.1s ease;
+}
+
+.result-sign-anim{
+    transform: scale(1);
+}
+
+.btn-play{
+    display: block;
+    font-size: 32px;
+    padding: 14px 24px;
+    filter: brightness(90%);
+}
+
+.btn-play:hover {
+    filter: brightness(70%);
+}

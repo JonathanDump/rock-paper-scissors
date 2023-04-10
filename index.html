@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="null.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
-    <script src="script.js"></script>
+    <div class="body-container">
+        <div class="header-container">
+            <div class="h-block blk-you">
+                <div class="d-you">YOU</div>
+                <div class="d-score-you">0</div>
+            </div>
+            <div class="h-block blk-msg">
+                <div class="d-msg">Choose yor object!</div>
+            </div>
+            <div class="h-block blk-comp">
+                <div class="d-comp">COMPUTER</div>
+                <div class="d-score-comp">0</div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="main-left">
+                <div class="object rock">
+                    <img src="/imgs/rock.png" alt="rock" id="rock">
+                </div>
+                <div class="object paper">
+                    <img src="/imgs/paper.png" alt="paper" id="paper">
+                </div>
+                <div class="object scissors">
+                    <img src="/imgs/scissors.png" alt="scissors" id="scissors">
+                </div>
+            </div>
+            <div class="main-mid">
+                <div class="sep-bar"></div>
+            </div>
+            <div class="main-right">
+                <div class="object comp-obj">
+                    <img src="" alt="" id="comp-choice-img">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="result-alert-container">
+        <div class="result-sign">
+            <p class="p-result"></p>
+            <button class="btn-play">Play again</button>
+        </div>
+    </div>
 </body>
+
 </html>
