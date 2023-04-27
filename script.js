@@ -51,7 +51,7 @@ imgs.forEach(img => img.addEventListener("click", () => {
         document.querySelector(".d-score-comp").textContent = `${computerScore}`;
         popUp.classList.remove("result-alert-container-visible");
         resultSign.classList.remove("result-sign-anim");
-
+        document.querySelector(".d-msg").textContent = "Choose yor object!";
         compImg.setAttribute("src", ``)
 
         });
@@ -103,39 +103,3 @@ function playRound(playerSelection, computerSelection) {
         return result = "You are a loser!"; 
     } 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-// function game(){
-//     for (let i=0; i < 9; i++){
-//         console.log(playRound(playerSelection(), getComputerChoice()))
-//         if (i === 9 && playerScore === computerScore){
-//             console.log("It is an absolute tie!");
-//             break;
-        
-//         }else if (playerScore === computerScore){
-//             continue;
-//         }else if (playerScore === 5){
-//             console.log("You have beaten the computer!");
-//             break;
-//         }else if ( computerScore === 5){
-//             console.log("You have been beaten by the computer!")
-//             break;
-//         }
-//         console.log(playerScore);
-//         console.log(computerScore);
-//     }
-//     playerScore = 0;
-//     computerScore = 0;
-// }
-
-// game();
